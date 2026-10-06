@@ -1,0 +1,35 @@
+services:
+  onos:
+    image: onosproject/onos
+    container_name: onos
+    hostname: onos
+    volumes:
+      - ./shared/onos:/shared-host
+    ports:
+      - "8181:8181"
+    networks:
+      - sdn
+    stdin_open: true
+    tty: true
+
+  mininet:
+    build:
+      context: ./mininet
+      dockerfile: Containerfile
+    container_name: mininet
+    hostname: mininet
+    privileged: true
+    volumes:
+      - ./shared/mininet:/shared-host
+    networks:
+      - sdn
+    stdin_open: true
+    tty: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+
+networks:
+  sdn:
+    name: sdn
+
