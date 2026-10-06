@@ -4,7 +4,7 @@ services:
     container_name: onos
     hostname: onos
     volumes:
-      - ./shared/onos:/shared-host
+      - ./shared/onos:/root/shared-host
     ports:
       - "8181:8181"
     networks:
@@ -20,7 +20,7 @@ services:
     hostname: mininet
     privileged: true
     volumes:
-      - ./shared/mininet:/shared-host
+      - ./shared/mininet:/root/shared-host
     networks:
       - sdn
     stdin_open: true

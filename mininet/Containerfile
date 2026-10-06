@@ -20,9 +20,8 @@ RUN dnf copr enable -y varlad/zellij && \
 
 WORKDIR /opt
 
-COPY start-ovs.sh /start-ovs.sh
-RUN chmod +x /start-ovs.sh
-CMD ["/start-ovs.sh"]
+COPY start-ovs.sh /root/start-ovs.sh
+RUN chmod +x /root/start-ovs.sh
 
 WORKDIR /root
 
